@@ -19,3 +19,6 @@ docker-compose run --rm app sh -c "python manage.py test"
 
 # rebuild services after adding the postgress
 docker-compose build
+
+# build app to check for race condition that Postgres is actually up.
+docker-compose run --rm app sh -c "python manage.py startapp core"
