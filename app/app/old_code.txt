@@ -1,19 +1,4 @@
 
-"""
-# set up test environment
-"""
-
-from django import SimpleTestCase
-from app import calc
-
-class CalcTests(SimpleTestCase):
-    """Test the calc module."""
-
-    def test_add_numbers(self):
-        """Test adding numbers together."""
-        res = calc.add(5, 6)
-        self.assertEqual(res, 11)
-
     def test_add_numbers_tuple(self):
         print("test_add_numbers_tuple")
         """Test adding numbers together."""
@@ -23,4 +8,30 @@ class CalcTests(SimpleTestCase):
     def subtract_numbers(self):
         """Test subtracting numbers."""
         res = calc.subtract(10, 15)
-        self.assertEqual(res, 5)    
+        self.assertEqual(res, 5)   
+
+
+        ####################################
+          """Entry point for command."""
+        pass
+        self.stdout.write("Waiting for database...")
+        # Here you would typically check the database connection
+        # For example, using Django's database connection check:
+        from django.db import connections
+        from django.db.utils import OperationalError
+        import time
+
+        db_conn = None
+        while db_conn is None:
+            try:
+                db_conn = connections['default']
+                db_conn.cursor()
+            except OperationalError:
+                self.stdout.write("Database unavailable, waiting 1 second...")
+                time.sleep(1)
+
+        self.stdout.write(self.style.SUCCESS("Database available!"))
+
+
+         patched_getitem.side_effect = [Psycopg2OpError] * 2 + \
+            [OperationalError] * 3 + [True] 
