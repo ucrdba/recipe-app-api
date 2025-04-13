@@ -1,13 +1,13 @@
 """
-Calculator functions for the app.
+Calculator functions
 """
+
+
 def add(x, y):
-    """Add two numbers together."""
+    """Add x and y and return result."""
     return x + y
 
 
-
-
 def subtract(x, y):
-    """Subtract one number from another."""
-    return x - y
+    """Subtract x from y and return result."""
+    return y - x
