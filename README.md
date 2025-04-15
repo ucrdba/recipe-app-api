@@ -22,3 +22,6 @@ docker-compose build
 
 # build app to check for race condition that Postgres is actually up.
 docker-compose run --rm app sh -c "python manage.py startapp core"
+
+# run checks standalone
+docker-compose run --rm app sh -c "python manage.py wait_for_db"
